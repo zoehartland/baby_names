@@ -17,7 +17,11 @@
 
      
       <style type="text/css">
-    
+  
+	body{
+		min-height: 480px;	
+	}
+	
 	#key path {
 		  display: none;
 
@@ -138,7 +142,7 @@
 #sel{padding-left:0px!important;}	
 
 #title{
-		font-size:34px;
+		font-size:30px;
 		font-weight:700;
 		color:#206095;
 		margin-top:10px;
@@ -280,15 +284,38 @@ td span{
 	 border-top: 4px solid #e8e8e8;
 	 margin-top:5px;
 }
-		  
-		  
+
+@media only screen and (max-width: 600px) {
+	td, th {
+		font-size:18px;
+		line-height:1.3em;
+	}
+	
+}
     </style>
+    
+    <script>
+
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37894017-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+    </script>    
+    
 </head>
 <body>
 	<div id="grey-line"></div>
     <div class="row visible-xs">
-    	<div class="col-xs-12" id="title">Explore the top baby names by area</div>
-        <div id="scene-image">
+    	<!--<div class="col-xs-12" id="title">Explore the top baby names by area</div>
+        --><div id="scene-image">
      		<img src="../images/babynamesMobile.svg" id="scene" alt="stork image" > </img>  
         </div>
     </div>
@@ -296,7 +323,7 @@ td span{
     	<div class="col-sm-5" id="scene-image">
      		<img src="../images/babynamesDesktop.svg" id="scene" alt="stork image" style="height:97px; margin-top:10px;"> </img>  
         </div>
-     	<div class="col-sm-7" id="title">Explore the top baby names by area</div>
+     	<!--<div class="col-sm-7" id="title">Explore the top baby names by area</div>-->
     </div>
     <div class="row" >
     	<p id='selectIntro'>Select an area</p>
@@ -311,7 +338,7 @@ td span{
         <div id="boy_roller3" class="textroller hide"></div>
         <div id="boy_roller4" class="textroller hide"></div>
     </div>
-    
+   
     <div id="girl_info" class="hide"><text></text></div>
     <div id="girlRollers">
         <div id="girl_roller1" class="textroller hide"></div>
@@ -319,8 +346,10 @@ td span{
         <div id="girl_roller3" class="textroller hide"></div>
         <div id="girl_roller4" class="textroller hide"></div>
     </div>
+   
     <div class="row">
-    	<div class="col-sm-6 col-xs-12">
+		
+ <!--   	<div class="col-sm-6 col-xs-12">
         	<div class="boys_table">
                 <p>Top boys' names in England and Wales</p>
                 <table>     	
@@ -375,11 +404,10 @@ td span{
               </tr>
             </table>
         </div>
-      </div>
-    </div>
+      </div>-->
+     </div>
     
 	<div id="graphic">
-    	<img src="fallback.png" alt="[Chart]" />
     </div>
 	    
     <div id="keypoints">
@@ -393,11 +421,13 @@ td span{
    <div id="footer"></div>
 -->
     
-    <script src="../lib/d3.v3.5.17.min.js" type="text/javascript"></script>
-    <script src="../lib/modernizr.svg.min.js" type="text/javascript"></script>
-    <script src="../lib/pym.js" type="text/javascript"></script>
+   
+        <script src="https://cdn.ons.gov.uk/vendor/d3/3.5.17/d3.min.js" type='text/javascript'></script>
+		<script src="../lib/modernizr.svg.min.js" type="text/javascript"></script> 
+	<script src="https://cdn.ons.gov.uk/vendor/pym/1.3.2/pym.v1-3-2.min.js" charset="utf-8"></script>
+	    
 <!--    <script src="../lib/footer.js"></script>-->
-    <script src="../lib/saveSvgAsPng.js" type="text/javascript"></script>
+<!--    <script src="../lib/saveSvgAsPng.js" type="text/javascript"></script>-->
     
     <script src="../lib/topojson.js"></script>
     <script src="../lib/queue.js" charset="utf-8"></script>
@@ -414,7 +444,8 @@ td span{
 		//var footer = d3.select(".footer");
 		var pymChild = null;
 		dvc = {};		
-				
+		
+		
 			
 		function drawGraphic(width) {
 		  				
@@ -447,7 +478,7 @@ td span{
 				  el: boyroller1,
 				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
 				  //align: "middle",    // right, left or middle. default : middle
-				  delay: 3000,      // in milliseconds,       default : 5000
+				  delay: 1500,      // in milliseconds,       default : 5000
 				  loop: false       // at the end, restart.   default : true
 			  });
 			 boyroller2    = document.getElementById("boy_roller2");			
@@ -455,7 +486,7 @@ td span{
 				  el: boyroller2,
 				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
 				  //align: "middle",    // right, left or middle. default : middle
-				  delay: 3000,      // in milliseconds,       default : 5000
+				  delay: 1500,      // in milliseconds,       default : 5000
 				  loop: false       // at the end, restart.   default : true
 			  }); 
 			  boyroller3    = document.getElementById("boy_roller3");			
@@ -463,7 +494,7 @@ td span{
 				  el: boyroller3,
 				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
 				  //align: "middle",    // right, left or middle. default : middle
-				  delay: 3000,      // in milliseconds,       default : 5000
+				  delay: 1500,      // in milliseconds,       default : 5000
 				  loop: false       // at the end, restart.   default : true
 			  });
 			 boyroller4    = document.getElementById("boy_roller4");			
@@ -471,7 +502,7 @@ td span{
 				  el: boyroller4,
 				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
 				  //align: "middle",    // right, left or middle. default : middle
-				  delay: 3000,      // in milliseconds,       default : 5000
+				  delay: 1500,      // in milliseconds,       default : 5000
 				  loop: false       // at the end, restart.   default : true
 			  });
 			  
@@ -480,7 +511,7 @@ td span{
 				  el: girlroller1,
 				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
 				  //align: "middle",    // right, left or middle. default : middle
-				  delay: 3000,      // in milliseconds,       default : 5000
+				  delay: 1500,      // in milliseconds,       default : 5000
 				  loop: false       // at the end, restart.   default : true
 			  });
 			girlroller2    = document.getElementById("girl_roller2");			
@@ -488,7 +519,7 @@ td span{
 				  el: girlroller2,
 				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
 				  //align: "middle",    // right, left or middle. default : middle
-				  delay: 3000,      // in milliseconds,       default : 5000
+				  delay: 1500,      // in milliseconds,       default : 5000
 				  loop: false       // at the end, restart.   default : true
 			  });
 			girlroller3    = document.getElementById("girl_roller3");			
@@ -496,7 +527,7 @@ td span{
 				  el: girlroller3,
 				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
 				  //align: "middle",    // right, left or middle. default : middle
-				  delay: 3000,      // in milliseconds,       default : 5000
+				  delay: 1500,      // in milliseconds,       default : 5000
 				  loop: false       // at the end, restart.   default : true
 			  });
 			girlroller4    = document.getElementById("girl_roller4");			
@@ -504,7 +535,7 @@ td span{
 				  el: girlroller4,
 				  values: ["ABCDEF"],    // an array of texts.     default : [el.innerHtml]
 				  //align: "middle",    // right, left or middle. default : middle
-				  delay: 3000,      // in milliseconds,       default : 5000
+				  delay: 1500,      // in milliseconds,       default : 5000
 				  loop: false       // at the end, restart.   default : true
 			  });
 				
@@ -548,14 +579,14 @@ td span{
 		
 		
 		//check whether browser can cope with svg	
-		if (Modernizr.svg) {
+		if (Modernizr.svg == true) {
 		   
 			
 			queue()
 				.defer(d3.json, "geog_ew_la.json")
 				.defer(d3.json, "config.json")
-				.defer(d3.csv, "data_boys.csv")
-				.defer(d3.csv, "data_girls.csv")
+				.defer(d3.csv, "data_boys_2017.csv")
+				.defer(d3.csv, "data_girls_2017.csv")
 				.await(ready);
 		
 			function ready(error, geog, config, data_boys, data_girls) {
@@ -564,22 +595,12 @@ td span{
 				data2 = data_boys;
 				data1 = data_girls;
 				config2 = config;
-				
 
-//				var IE = (!! window.ActiveXObject && +(/msie\s(\d+)/i.exec(navigator.userAgent)[1])) || NaN;
-//				if (IE != 9) {
-//					zoomcontrols();
-//				}
 
-				selectlist(data2);
-			pymChild = new pym.Child({ renderCallback: drawGraphic});
+				pymChild = new pym.Child({ renderCallback:selectlist(data2) })
+				//pymChild = new pym.Child({ renderCallback: drawGraphic});
 			
 
-
-//				$(window).resize(function(){
-//						d3.select("#map").select("svg").remove();
-//						makeMap(geog2,data2,config2)
-//				});
 
 			};
 //			
@@ -595,7 +616,13 @@ td span{
 			var optns = d3.select("#selectNav").append("div").attr("id","sel").attr("style","padding-left:2%")
 				.append("select")
 				.attr("id","areaselect")
-			 	.attr("style","width:98%")
+			 	.attr("style", function(d,i){
+					if(parseInt(graphic.style("width")) <580){
+						return "width:100%"
+					} else {
+						return "width:300px"
+					}	
+				})
 				// .attr("class","chosen-select");
 
 
@@ -612,7 +639,7 @@ td span{
 			$('#areaselect').select2({placeholder:"e.g. Fareham",allowClear:false,dropdownParent:$('#sel')}).on('change',function(){
 
 					if($('#areaselect').val() !="") {
-														
+												
 							data1.filter(function(d){
 								if(d.AREACD == $('#areaselect').val()){
 									girl_babynames = d.babyname;
@@ -633,31 +660,39 @@ td span{
 							d3.select(".boys_table").classed("hide", true);
 							d3.select(".girls_table").classed("hide", true);
 							 
-												
-							d3.select("#boy_info").select("text").text(
-							function(d){ 
-								if(boy_babynames.indexOf(", ") == -1){
-									return "The most popular name given to "+boy_value+" baby boys in 2017:";
-								} else {
-									return "The most popular names given to "+boy_value+" baby boys in 2017:";
-								}
-							})
+							if($('#areaselect').val() == "E09000001" || $('#areaselect').val() == "E06000053") {
+								d3.select("#boy_info").select("text").text("Data not available for this area as there were less than 3 baby boys born with the top name")		
+							} else {					
+								d3.select("#boy_info").select("text").text(
+								function(d){ 
+									if(boy_babynames.indexOf(", ") == -1){
+										return "The most popular name given to "+boy_value+" baby boys in 2017:";
+									} else {
+										return "The most popular names given to "+boy_value+" baby boys in 2017:";
+									}
+								})
+							}
 							
-							
-							
-							d3.select("#girl_info").select("text").text(
-							function(d){ 
-								if(girl_babynames.indexOf(", ") == -1){
-									return "The most popular name given to "+girl_value+" baby girls in 2017:";
-								} else {
-									return "The most popular names given to "+girl_value+" baby girls in 2017:";
-								}
-							})
-							
+							if( $('#areaselect').val() == "E06000053") {
+								d3.select("#girl_info").select("text").text("Data not available for this area as there were less than 3 baby boys born with the top name")		
+							} else {	
+								d3.select("#girl_info").select("text").text(
+								function(d){ 
+									if(boy_babynames.indexOf(", ") == -1){
+										return "The most popular name given to "+girl_value+" baby girls in 2017:";
+									} else {
+										return "The most popular names given to "+girl_value+" baby girls in 2017:";
+									}
+								})
+							}
 							boyArray = boy_babynames.split(", ")
 							girlArray = girl_babynames.split(", ")
-							
-							if(boyArray.length==1){
+							if(boyArray[0] == ""){
+								d3.select("#boy_roller1").classed("hide", true);
+								d3.select("#boy_roller2").classed("hide", true);	
+								d3.select("#boy_roller3").classed("hide", true);
+								d3.select("#boy_roller4").classed("hide", true);
+							} else if (boyArray.length==1){
 								d3.select("#boy_roller1").classed("hide", false);
 								d3.select("#boy_roller2").classed("hide", true);	
 								d3.select("#boy_roller3").classed("hide", true);
@@ -698,7 +733,12 @@ td span{
 							}
 							
 							
-							if(girlArray.length==1){
+							if(girlArray[0] == ""){
+								d3.select("#girl_roller1").classed("hide", true);
+								d3.select("#girl_roller2").classed("hide", true);	
+								d3.select("#girl_roller3").classed("hide", true);	
+								d3.select("#girl_roller4").classed("hide", true);	
+							} else if(girlArray.length==1){
 								d3.select("#girl_roller1").classed("hide", false);
 								d3.select("#girl_roller2").classed("hide", true);	
 								d3.select("#girl_roller3").classed("hide", true);	
@@ -753,7 +793,9 @@ td span{
 							d3.select("#boy_info").select("text").text("")	
 							d3.select("#girl_info").select("text").text("")	
 					}
-
+					if (pymChild) {
+						pymChild.sendHeight();
+					}
 			});
 
 			//some code to stop select2 opening when clearing
@@ -768,12 +810,22 @@ td span{
 				}
 			});
 
+
+		 drawGraphic();
+
+		if (pymChild) {
+			pymChild.sendHeight();
+		}
 	};//end of selectlist
 
 
 		} else {
 			 //use pym to create iframe containing fallback image (which is set as default)
 			 pymChild = new pym.Child();
+			
+			$("#selectIntro").text("To use this interactive you need to upgrade your browser")
+			$("#selectBlurb").text("")
+			 
 			if (pymChild) {
 		        pymChild.sendHeight();
 		    }
