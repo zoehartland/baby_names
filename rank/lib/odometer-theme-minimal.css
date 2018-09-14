@@ -11,6 +11,20 @@
 	text-align:center;
 }
 
+@media only screen and (max-width: 600px) {
+.odometer{
+	font-size:28px;
+	font-weight:700;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.odometer-digit {
+    width:38px;
+	height:38px;
+	text-align:center;
+}
+}
+
 .textroller{
 	margin-bottom:5px;
 }
@@ -26,11 +40,11 @@
 }
 
 #boy_roller1 .odometer-digit:nth-of-type(5n+3)  .odometer-value{
-    border: 5px solid #36ADD9; 
+    border: 5px solid #36ADD9;
 }
 
 #boy_roller1 .odometer-digit:nth-of-type(5n+4)  .odometer-value{
-    border: 5px solid #EB92BB; 
+    border: 5px solid #EB92BB;
 }
 
 #boy_roller1 .odometer-digit:nth-of-type(5n+5)  .odometer-value{
@@ -199,6 +213,16 @@
 	font-family:"Open Sans", sans-serif;
 }
 
+@media only screen and (max-width: 600px) {
+	.odometer-value{
+		color:#003C57;
+		width: 28px;
+		height:28px;
+		border-radius:5px;
+		font-family:"Open Sans", sans-serif;
+	}
+}
+
 /*CSS from Github*/
 .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
   display: inline-block;
@@ -286,6 +310,13 @@
   font-family: "Helvetica Neue", sans-serif;
   line-height: 1.1em;
 }
+
+@media only screen and (max-width: 600px) {
+	.odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+	  line-height: 0.9em;
+	}
+}
+
 .odometer.odometer-auto-theme .odometer-value, .odometer.odometer-theme-default .odometer-value {
   text-align: center;
 }
